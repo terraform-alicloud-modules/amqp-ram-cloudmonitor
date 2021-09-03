@@ -31,8 +31,6 @@ terraform-alicloud-amqp-ram-cloudmonitor
 
 ```hcl
 module "tf-amqp-ram-cloudmonitor" {
-  profile           = "Your-Profile-Name"
-  region            = "cn-hangzhou"
   source            = "terraform-alicloud-modules/amqp-ram-cloudmonitor/alicloud"
 }
 ```
