@@ -49,7 +49,7 @@ module "tf-amqp-ram-cloudmonitor" {
 
 ## 作者
 
-Created and maintained by maiqiao(bj090628@163.com)
+Created and maintained by Alibaba Cloud Terraform Team(terraform@alibabacloud.com)
 
 ## 许可
 
