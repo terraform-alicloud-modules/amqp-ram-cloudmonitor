@@ -9,14 +9,12 @@ output "alicloud_amqp_virtual_host_id" {
 output "alicloud_amqp_exchange_id" {
   value = alicloud_amqp_exchange.default.id
 }
+
 output "alicloud_amqp_queue_id" {
   value = alicloud_amqp_queue.default.id
 }
 
-
-############
 # cms exchange_tps_in alarm
-############
 output "this_exchange_tps_in_alarm_rule_effective_interval" {
   description = "The interval of effecting alarm rule. "
   value       = concat(alicloud_cms_alarm.exchange_tps_in.*.effective_interval, [""])[0]
@@ -44,7 +42,7 @@ output "this_exchange_tps_in_alarm_rule_metric" {
 
 output "this_exchange_tps_in_alarm_rule_dimensions" {
   description = "Map of the resources associated with the alarm rule. "
-  value       = alicloud_cms_alarm.exchange_tps_in.*.dimensions
+  value       = concat(alicloud_cms_alarm.exchange_tps_in.*.dimensions, [""])[0]
 }
 
 output "this_exchange_tps_in_alarm_rule_period" {
@@ -87,9 +85,7 @@ output "this_exchange_tps_in_alarm_rule_enabled" {
   value       = concat(alicloud_cms_alarm.exchange_tps_in.*.enabled, [""])[0]
 }
 
-############
 # cms exchange_tps_out alarm
-############
 output "this_exchange_tps_out_alarm_rule_effective_interval" {
   description = "The interval of effecting alarm rule. "
   value       = concat(alicloud_cms_alarm.exchange_tps_out.*.effective_interval, [""])[0]
@@ -117,7 +113,7 @@ output "this_exchange_tps_out_alarm_rule_metric" {
 
 output "this_exchange_tps_out_alarm_rule_dimensions" {
   description = "Map of the resources associated with the alarm rule. "
-  value       = alicloud_cms_alarm.exchange_tps_out.*.dimensions
+  value       = concat(alicloud_cms_alarm.exchange_tps_out.*.dimensions, [""])[0]
 }
 
 output "this_exchange_tps_out_alarm_rule_period" {
@@ -160,9 +156,7 @@ output "this_exchange_tps_out_alarm_rule_enabled" {
   value       = concat(alicloud_cms_alarm.exchange_tps_out.*.enabled, [""])[0]
 }
 
-############
 # cms instance_message_input alarm
-############
 output "this_instance_message_input_alarm_rule_effective_interval" {
   description = "The interval of effecting alarm rule. "
   value       = concat(alicloud_cms_alarm.instance_message_input.*.effective_interval, [""])[0]
@@ -190,7 +184,7 @@ output "this_instance_message_input_alarm_rule_metric" {
 
 output "this_instance_message_input_alarm_rule_dimensions" {
   description = "Map of the resources associated with the alarm rule. "
-  value       = alicloud_cms_alarm.instance_message_input.*.dimensions
+  value       = concat(alicloud_cms_alarm.instance_message_input.*.dimensions, [""])[0]
 }
 
 output "this_instance_message_input_alarm_rule_period" {
@@ -233,10 +227,7 @@ output "this_instance_message_input_alarm_rule_enabled" {
   value       = concat(alicloud_cms_alarm.instance_message_input.*.enabled, [""])[0]
 }
 
-
-############
 # cms instance_message_output alarm
-############
 output "this_instance_message_output_alarm_rule_effective_interval" {
   description = "The interval of effecting alarm rule. "
   value       = concat(alicloud_cms_alarm.instance_message_output.*.effective_interval, [""])[0]
@@ -264,7 +255,7 @@ output "this_instance_message_output_alarm_rule_metric" {
 
 output "this_instance_message_output_alarm_rule_dimensions" {
   description = "Map of the resources associated with the alarm rule. "
-  value       = alicloud_cms_alarm.instance_message_output.*.dimensions
+  value       = concat(alicloud_cms_alarm.instance_message_output.*.dimensions, [""])[0]
 }
 
 output "this_instance_message_output_alarm_rule_period" {
@@ -307,11 +298,7 @@ output "this_instance_message_output_alarm_rule_enabled" {
   value       = concat(alicloud_cms_alarm.instance_message_output.*.enabled, [""])[0]
 }
 
-
-
-############
 # cms queue_message_accumulation alarm
-############
 output "queue_message_accumulation_alarm_rule_effective_interval" {
   description = "The interval of effecting alarm rule. "
   value       = concat(alicloud_cms_alarm.queue_message_accumulation.*.effective_interval, [""])[0]
@@ -339,7 +326,7 @@ output "queue_message_accumulation_alarm_rule_metric" {
 
 output "queue_message_accumulation_alarm_rule_dimensions" {
   description = "Map of the resources associated with the alarm rule. "
-  value       = alicloud_cms_alarm.queue_message_accumulation.*.dimensions
+  value       = concat(alicloud_cms_alarm.queue_message_accumulation.*.dimensions, [""])[0]
 }
 
 output "queue_message_accumulation_alarm_rule_period" {
