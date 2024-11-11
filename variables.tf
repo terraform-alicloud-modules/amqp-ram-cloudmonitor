@@ -142,12 +142,6 @@ variable "alarm_exchange_tps_in_metric" {
   default     = "ExchangeTPSIn"
 }
 
-variable "alarm_user_id" {
-  description = "The alarm of userId."
-  type        = string
-  default     = ""
-}
-
 variable "region_id" {
   description = "The specification of regionId."
   type        = string

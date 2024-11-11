@@ -42,8 +42,7 @@ module "example" {
   exchange_tps_in_enable_alarm_rule             = var.exchange_tps_in_enable_alarm_rule
   exchange_tps_in_alarm_rule_name               = var.exchange_tps_in_alarm_rule_name
   alarm_exchange_tps_in_metric                  = "ExchangeTPSIn"
-  alarm_user_id                                 = "test"
-  region_id                                     = data.alicloud_regions.default.regions.0.id
+  region_id                                     = data.alicloud_regions.default.regions[0].id
   exchange_tps_in_alarm_rule_statistics         = var.exchange_tps_in_alarm_rule_statistics
   exchange_tps_in_alarm_rule_operator           = var.exchange_tps_in_alarm_rule_operator
   exchange_tps_in_alarm_rule_threshold          = var.exchange_tps_in_alarm_rule_threshold

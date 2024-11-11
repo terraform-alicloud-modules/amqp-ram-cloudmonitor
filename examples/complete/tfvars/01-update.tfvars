@@ -17,7 +17,7 @@ is_admin          = false
 #ExchangeTPSIn
 exchange_tps_in_enable_alarm_rule             = false
 exchange_tps_in_alarm_rule_name               = "update-tf-testacc-rule-name"
-exchange_tps_in_alarm_rule_statistics         = "Maximum"
+exchange_tps_in_alarm_rule_statistics         = "Value"
 exchange_tps_in_alarm_rule_operator           = "<="
 exchange_tps_in_alarm_rule_threshold          = "35"
 exchange_tps_in_times                         = "5"
@@ -28,7 +28,7 @@ exchange_tps_in_alarm_rule_effective_interval = "0:00-4:00"
 #ExchangeTPSOut
 exchange_tps_out_enable_alarm_rule             = false
 exchange_tps_out_alarm_rule_name               = "update-tf-testacc-rule-name"
-exchange_tps_out_alarm_rule_statistics         = "Maximum"
+exchange_tps_out_alarm_rule_statistics         = "Value"
 exchange_tps_out_alarm_rule_operator           = "<="
 exchange_tps_out_alarm_rule_threshold          = "35"
 exchange_tps_out_times                         = "5"
@@ -39,7 +39,7 @@ exchange_tps_out_alarm_rule_effective_interval = "0:00-4:00"
 #InstanceMessageInput
 instance_message_input_enable_alarm_rule             = false
 instance_message_input_alarm_rule_name               = "update-tf-testacc-rule-name"
-instance_message_input_alarm_rule_statistics         = "Maximum"
+instance_message_input_alarm_rule_statistics         = "Sum"
 instance_message_input_alarm_rule_operator           = "<="
 instance_message_input_alarm_rule_threshold          = "35"
 instance_message_input_times                         = "5"
@@ -50,7 +50,7 @@ instance_message_input_alarm_rule_effective_interval = "0:00-4:00"
 #InstanceMessageOutput
 instance_message_output_enable_alarm_rule             = false
 instance_message_output_alarm_rule_name               = "update-tf-testacc-rule-name"
-instance_message_output_alarm_rule_statistics         = "Maximum"
+instance_message_output_alarm_rule_statistics         = "Sum"
 instance_message_output_alarm_rule_operator           = "<="
 instance_message_output_alarm_rule_threshold          = "35"
 instance_message_output_times                         = "5"
