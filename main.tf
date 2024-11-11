@@ -36,8 +36,10 @@ resource "alicloud_amqp_queue" "default" {
 }
 
 module "ram_user" {
-  // 引用module源地址
-  source                        = "terraform-alicloud-modules/ram/alicloud"
+  # 引用module源地址
+  source  = "terraform-alicloud-modules/ram/alicloud"
+  version = "v2.0.0"
+
   name                          = var.ram_user_name
   create_ram_user_login_profile = var.create_ram_user_login_profile
   password                      = var.ram_user_password
@@ -51,13 +53,22 @@ resource "alicloud_cms_alarm" "exchange_tps_in" {
   name    = var.exchange_tps_in_alarm_rule_name
   project = local.project
   metric  = var.alarm_exchange_tps_in_metric
-  dimensions = {
-    instanceId   = alicloud_amqp_exchange.default.id
-    userId       = var.alarm_user_id
-    vhostName    = alicloud_amqp_virtual_host.default.virtual_host_name
-    exchangeName = alicloud_amqp_exchange.default.exchange_name
-    regionId     = var.region_id
-  }
+  metric_dimensions = jsonencode(
+    [
+      {
+        "instanceId" : alicloud_amqp_exchange.default.id
+      },
+      {
+        "vhostName" : alicloud_amqp_virtual_host.default.virtual_host_name
+      },
+      {
+        "exchangeName" : alicloud_amqp_exchange.default.exchange_name
+      },
+      {
+        "regionId" : var.region_id
+      }
+    ]
+  )
   escalations_critical {
     statistics          = var.exchange_tps_in_alarm_rule_statistics
     comparison_operator = var.exchange_tps_in_alarm_rule_operator
@@ -76,13 +87,22 @@ resource "alicloud_cms_alarm" "exchange_tps_out" {
   name    = var.exchange_tps_out_alarm_rule_name
   project = local.project
   metric  = var.alarm_exchange_tps_out_metric
-  dimensions = {
-    instanceId   = alicloud_amqp_exchange.default.id
-    userId       = var.alarm_user_id
-    vhostName    = alicloud_amqp_virtual_host.default.virtual_host_name
-    exchangeName = alicloud_amqp_exchange.default.exchange_name
-    regionId     = var.region_id
-  }
+  metric_dimensions = jsonencode(
+    [
+      {
+        "instanceId" : alicloud_amqp_exchange.default.id
+      },
+      {
+        "vhostName" : alicloud_amqp_virtual_host.default.virtual_host_name
+      },
+      {
+        "exchangeName" : alicloud_amqp_exchange.default.exchange_name
+      },
+      {
+        "regionId" : var.region_id
+      }
+    ]
+  )
   escalations_critical {
     statistics          = var.exchange_tps_out_alarm_rule_statistics
     comparison_operator = var.exchange_tps_out_alarm_rule_operator
@@ -101,11 +121,16 @@ resource "alicloud_cms_alarm" "instance_message_input" {
   name    = var.instance_message_input_alarm_rule_name
   project = local.project
   metric  = var.alarm_instance_message_input_metric
-  dimensions = {
-    instanceId = alicloud_amqp_instance.default.id
-    userId     = var.alarm_user_id
-    regionId   = var.region_id
-  }
+  metric_dimensions = jsonencode(
+    [
+      {
+        "instanceId" : alicloud_amqp_instance.default.id
+      },
+      {
+        "regionId" : var.region_id
+      }
+    ]
+  )
   escalations_critical {
     statistics          = var.instance_message_input_alarm_rule_statistics
     comparison_operator = var.instance_message_input_alarm_rule_operator
@@ -124,11 +149,16 @@ resource "alicloud_cms_alarm" "instance_message_output" {
   name    = var.instance_message_output_alarm_rule_name
   project = local.project
   metric  = var.alarm_instance_message_output_metric
-  dimensions = {
-    instanceId = alicloud_amqp_instance.default.id
-    userId     = var.alarm_user_id
-    regionId   = var.region_id
-  }
+  metric_dimensions = jsonencode(
+    [
+      {
+        "instanceId" : alicloud_amqp_instance.default.id
+      },
+      {
+        "regionId" : var.region_id
+      }
+    ]
+  )
   escalations_critical {
     statistics          = var.instance_message_output_alarm_rule_statistics
     comparison_operator = var.instance_message_output_alarm_rule_operator
@@ -147,12 +177,19 @@ resource "alicloud_cms_alarm" "queue_message_accumulation" {
   name    = var.queue_message_accumulation_alarm_rule_name
   project = local.project
   metric  = var.queue_message_accumulation_metric
-  dimensions = {
-    instanceId = alicloud_amqp_instance.default.id
-    userId     = var.alarm_user_id
-    regionId   = var.region_id
-    queueName  = alicloud_amqp_queue.default.queue_name
-  }
+  metric_dimensions = jsonencode(
+    [
+      {
+        "instanceId" : alicloud_amqp_instance.default.id
+      },
+      {
+        "vhostQueue" : alicloud_amqp_queue.default.queue_name
+      },
+      {
+        "regionId" : var.region_id
+      }
+    ]
+  )
   escalations_critical {
     statistics          = var.queue_message_accumulation_alarm_rule_statistics
     comparison_operator = var.queue_message_accumulation_alarm_rule_operator

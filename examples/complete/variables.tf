@@ -75,9 +75,9 @@ variable "exchange_tps_in_alarm_rule_name" {
 }
 
 variable "exchange_tps_in_alarm_rule_statistics" {
-  description = "Statistical method. It must be consistent with that defined for metrics. Valid values: ['Average', 'Minimum', 'Maximum']. Default to 'Average'. "
+  description = "Statistical method. It must be consistent with that defined for metrics. "
   type        = string
-  default     = "Average"
+  default     = "Value"
 }
 
 variable "exchange_tps_in_alarm_rule_operator" {
@@ -130,9 +130,9 @@ variable "exchange_tps_out_alarm_rule_name" {
 }
 
 variable "exchange_tps_out_alarm_rule_statistics" {
-  description = "Statistical method. It must be consistent with that defined for metrics. Valid values: ['Average', 'Minimum', 'Maximum']. Default to 'Average'. "
+  description = "Statistical method. It must be consistent with that defined for metrics."
   type        = string
-  default     = "Average"
+  default     = "Value"
 }
 
 variable "exchange_tps_out_alarm_rule_operator" {
@@ -185,9 +185,9 @@ variable "instance_message_input_alarm_rule_name" {
 }
 
 variable "instance_message_input_alarm_rule_statistics" {
-  description = "Statistical method. It must be consistent with that defined for metrics. Valid values: ['Average', 'Minimum', 'Maximum']. Default to 'Average'. "
+  description = "Statistical method. It must be consistent with that defined for metrics."
   type        = string
-  default     = "Average"
+  default     = "Sum"
 }
 
 variable "instance_message_input_alarm_rule_operator" {
@@ -240,9 +240,9 @@ variable "instance_message_output_alarm_rule_name" {
 }
 
 variable "instance_message_output_alarm_rule_statistics" {
-  description = "Statistical method. It must be consistent with that defined for metrics. Valid values: ['Average', 'Minimum', 'Maximum']. Default to 'Average'. "
+  description = "Statistical method. It must be consistent with that defined for metrics. "
   type        = string
-  default     = "Average"
+  default     = "Sum"
 }
 
 variable "instance_message_output_alarm_rule_operator" {
@@ -295,9 +295,9 @@ variable "queue_message_accumulation_alarm_rule_name" {
 }
 
 variable "queue_message_accumulation_alarm_rule_statistics" {
-  description = "Statistical method. It must be consistent with that defined for metrics. Valid values: ['Average', 'Minimum', 'Maximum']. Default to 'Average'. "
+  description = "Statistical method. It must be consistent with that defined for metrics. "
   type        = string
-  default     = "Average"
+  default     = "Maximum"
 }
 
 variable "queue_message_accumulation_alarm_rule_operator" {
