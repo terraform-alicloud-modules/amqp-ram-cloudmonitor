@@ -53,6 +53,12 @@ variable "amqp_period" {
   default     = 1
 }
 
+variable "amqp_serverless_charge_type" {
+  description = "The specification of amqp serverless charge type."
+  type        = string
+  default     = null
+}
+
 #alicloud_amqp_virtual_host
 variable "amqp_virtual_host_name" {
   description = "The specification of amqp virtual host name."

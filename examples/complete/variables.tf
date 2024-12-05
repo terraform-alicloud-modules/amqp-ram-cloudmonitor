@@ -8,19 +8,19 @@ variable "amqp_instance_name" {
 variable "amqp_max_tps" {
   description = "The specification of amqp max tps."
   type        = number
-  default     = 1000
+  default     = null
 }
 
 variable "amqp_queue_capacity" {
   description = "The specification of amqp queue capacity."
   type        = number
-  default     = 50
+  default     = null
 }
 
 variable "amqp_support_eip" {
   description = "The specification of amqp is  support eip."
   type        = bool
-  default     = false
+  default     = true
 }
 
 variable "amqp_max_eip_tps" {
@@ -32,7 +32,7 @@ variable "amqp_max_eip_tps" {
 variable "amqp_modify_type" {
   description = "The specification of amqp payment type."
   type        = string
-  default     = "Downgrade"
+  default     = null
 }
 
 variable "amqp_period" {
