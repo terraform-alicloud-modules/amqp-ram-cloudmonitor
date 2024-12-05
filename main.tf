@@ -4,15 +4,16 @@ locals {
 
 #amqp instance
 resource "alicloud_amqp_instance" "default" {
-  instance_name  = var.amqp_instance_name
-  instance_type  = var.amqp_instance_type
-  max_tps        = var.amqp_max_tps
-  queue_capacity = var.amqp_queue_capacity
-  support_eip    = var.amqp_support_eip
-  max_eip_tps    = var.amqp_max_eip_tps
-  payment_type   = var.amqp_payment_type
-  modify_type    = var.amqp_modify_type
-  period         = var.amqp_period
+  instance_name          = var.amqp_instance_name
+  instance_type          = var.amqp_instance_type
+  max_tps                = var.amqp_max_tps
+  queue_capacity         = var.amqp_queue_capacity
+  support_eip            = var.amqp_support_eip
+  max_eip_tps            = var.amqp_max_eip_tps
+  payment_type           = var.amqp_payment_type
+  modify_type            = var.amqp_modify_type
+  period                 = var.amqp_period
+  serverless_charge_type = var.amqp_serverless_charge_type
 }
 
 resource "alicloud_amqp_virtual_host" "default" {

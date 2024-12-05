@@ -1,3 +1,6 @@
+provider "alicloud" {
+  region = "cn-beijing"
+}
 data "alicloud_regions" "default" {
   current = true
 }
@@ -9,15 +12,16 @@ module "example" {
   source = "../.."
 
   #alicloud_amqp_instance
-  amqp_instance_name  = var.amqp_instance_name
-  amqp_instance_type  = "professional"
-  amqp_max_tps        = var.amqp_max_tps
-  amqp_queue_capacity = var.amqp_queue_capacity
-  amqp_support_eip    = var.amqp_support_eip
-  amqp_max_eip_tps    = var.amqp_max_eip_tps
-  amqp_payment_type   = "Subscription"
-  amqp_modify_type    = var.amqp_modify_type
-  amqp_period         = var.amqp_period
+  amqp_instance_name          = var.amqp_instance_name
+  amqp_instance_type          = null
+  amqp_max_tps                = var.amqp_max_tps
+  amqp_queue_capacity         = var.amqp_queue_capacity
+  amqp_support_eip            = var.amqp_support_eip
+  amqp_max_eip_tps            = var.amqp_max_eip_tps
+  amqp_payment_type           = "PayAsYouGo"
+  amqp_modify_type            = var.amqp_modify_type
+  amqp_period                 = var.amqp_period
+  amqp_serverless_charge_type = "onDemand"
 
   #alicloud_amqp_virtual_host
   amqp_virtual_host_name = "tf-testacc-virtualhost-name"

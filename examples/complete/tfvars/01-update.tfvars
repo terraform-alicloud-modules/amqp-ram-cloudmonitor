@@ -1,11 +1,5 @@
 #alicloud_amqp_instance
-amqp_instance_name  = "update-tf-testacc-name"
-amqp_max_tps        = 2000
-amqp_queue_capacity = 60
-amqp_support_eip    = true
-amqp_max_eip_tps    = 256
-amqp_modify_type    = "Upgrade"
-amqp_period         = 2
+amqp_instance_name = "update-tf-testacc-name"
 
 #alicloud_amqp_exchange
 amqp_exchang_internal = false
